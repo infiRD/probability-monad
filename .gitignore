@@ -1,5 +1,39 @@
+# --------------------------------- sbt  ------------------------------------ #
 # sbt artifacts
 target
 *.class
 .lib
 project/*.jar
+
+# -------------------------------  Gradle  ---------------------------------- #
+.gradle
+/build/
+/out/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+gradle/wrapper/gradle-wrapper.properties
+
+# --------------------------------  IDEA  ----------------------------------- #
+# ignore all IDEA files:
+.idea/
+*.ipr
+*.iws
+*.iml
+
+# -------------------------------  VScode  ---------------------------------- #
+# settings
+.vscode/*
+# artifacts
+bin/
+.settings/
+.classpath
+.project
