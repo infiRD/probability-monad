@@ -1,0 +1,27 @@
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+apply plugin: 'scala'
+
+dependencies {
+    def scalaFullVer = globalScalaFullVersion
+
+    compile "org.scala-lang:scala-library:$scalaFullVer"
+}
+
+gradle.taskGraph.whenReady {
+    def createIfNotExists = { File dir ->
+        if (!dir.exists()) {
+            dir.mkdirs()
+        }
+    }
+
+    if (project.plugins.hasPlugin('scala')) {
+        sourceSets.main['scala'].srcDirs.each(createIfNotExists)
+        sourceSets.test['scala'].srcDirs.each(createIfNotExists)
+    }
+    sourceSets.main.resources.srcDirs.each(createIfNotExists)
+    sourceSets.test.resources.srcDirs.each(createIfNotExists)
+}
